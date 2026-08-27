@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กลุ่มฮอมฮักผ้าทอทุ่งฮี - ผ้าทอมือย้อมครั่งสีธรรมชาติ ลำปาง</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #7b241c; /* สีครั่ง/แดงเข้มอมม่วง */
+            --secondary-color: #c0392b;
+            --accent-color: #d4ac0d; /* สีทอง/เหลืองฝ้าย */
+            --dark-color: #2c3e50;
+            --light-color: #fcf3cf;
+            --bg-color: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 5%;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top-bar i {
+            margin-right: 5px;
+            color: var(--accent-color);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .logo-text h1 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.6), rgba(123, 36, 28, 0.7)), url('images/Background.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #f1c40f;
+            transform: translateY(-2px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* About / Story */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background-color: white;
+            border-left: 5px solid var(--primary-color);
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: 0 8px 8px 0;
+            margin-top: 20px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* == ส่วนที่แก้ไขการเรียกไฟล์รูปภาพ == */
+        .feature-card {
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 3px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+            padding: 25px;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.6), rgba(255,255,255,0.7));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* ปรับ path ของรูปภาพให้ถูกต้องตามโครงสร้างโฟลเดอร์จริง (ตัวอย่างเช่นอยู่ในโฟลเดอร์ images/) */
+        #card-cotton {
+            background-image: url('images/Cotton.jpg'); /* ปรับนามสกุลไฟล์ให้ตรงกับรูปจริง เช่น .jpg หรือ .png */
+        }
+        
+        #card-lac {
+            background-image: url('images/Shellac.jpg'); /* ปรับนามสกุลไฟล์ให้ตรงกับรูปจริง เช่น .jpg หรือ .png */
+        }
+        
+        #card-loom {
+            background-image: url('images/Loom.jpg');
+        }
+        
+        #card-community {
+            background-image: url('images/Community.jpg');
+        }
+        /* == สิ้นสุดส่วนที่แก้ไข == */
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+/* Process Section */
+        .process-section {
+            background-color: #f9f6ef;
+            padding: 60px 20px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            min-height: 220px; /* ขยายความสูงของกรอบให้พอดีและดูสมส่วน */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        /* เลเยอร์สีทับด้านหลังข้อความเพื่อให้ตัวหนังสืออ่านง่ายขึ้น */
+        .step-content {
+            position: relative;
+            z-index: 2;
+            padding: 25px 20px 20px 20px;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.7) 60%, rgba(255, 255, 255, 0.6) 100%);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .step-num {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary-color);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            z-index: 3;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .step-card h3 {
+            margin-top: 10px;
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .step-card p {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        /* กำหนดรูปภาพพื้นหลังแต่ละขั้นตอน (สามารถเปลี่ยนชื่อไฟล์ตามรูปที่คุณมีได้เลยครับ) */
+        #step-1 { background-image: url('images/เก็บฝ้าย.jpg'); }
+        #step-2 { background-image: url('images/อีดฝ้าย.jpg'); }
+        #step-3 { background-image: url('images/ล้าง.jpg'); }
+        #step-4 { background-image: url('images/ย้อม.jpg'); }
+        #step-5 { background-image: url('images/ตาก.jpg'); }
+        #step-6 { background-image: url('images/ผ้าทอ.jpg'); }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            height: 220px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 1.2rem;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-color);
+            color: var(--dark-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .product-info p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .order-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .order-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Identity Banner */
+        .identity-banner {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: 15px;
+            margin: 60px 0;
+        }
+
+        .identity-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .identity-banner p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Community & Social Responsibility */
+        .community-section {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 60px;
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* Contact & Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col p, .footer-col li {
+            margin-bottom: 10px;
+            color: #bdc3c7;
+            list-style: none;
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            background: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid, .community-grid, .about-features {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div>
+            <i class="fas fa-map-marker-alt"></i> บ้านทุ่งฮี ต.วังทรายคำ อ.วังเหนือ จ.ลำปาง 52140
+        </div>
+        <div>
+            <i class="fas fa-award"></i> มาตรฐานผลิตภัณฑ์ชุมชน (มผช.) 4 ดาว & OTOP พช.
+        </div>
+    </div>
+
+   <!-- Header & Navigation -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+               <img src="images/newlogo.jpg" alt="สมพรผ้าไทย" style="height: 50px; width: auto; object-fit: contain;">
+                <div class="logo-text">
+                    <h1>ฮอมฮักผ้าทอทุ่งฮี</h1>
+                    <p>ผ้าทอมือย้อมสีธรรมชาติจากครั่ง ลำปาง</p>
+                </div>
+            </div>
+...
+            <ul class="nav-links">
+                <li><a href="#home">หน้าแรก</a></li>
+                <li><a href="#about">เกี่ยวกับเรา</a></li>
+                <li><a href="#process">กระบวนการผลิต</a></li>
+                <li><a href="#products">สินค้าเด่น</a></li>
+                <li><a href="#community">สังคมและชุมชน</a></li>
+                <li><a href="#contact">ติดต่อเรา</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>กลุ่มฮอมฮักผ้าทอทุ่งฮี</h2>
+            <p>เส้นสาย ใยผ้า ถักทอด้วยภูมิปัญญา สู่ผ้าทอสีอัตลักษณ์ประจำจังหวัดลำปาง ย้อมด้วยสีธรรมชาติจากครั่ง ปลอดภัย สวมใส่สบาย</p>
+            <a href="#products" class="btn">เลือกชมสินค้าของเรา</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <div class="container" id="about">
+        <div class="section-title">
+            <h2>เรื่องราวความเป็นมา</h2>
+            <p>จากประสบการณ์ช่างตัดเสื้อกว่า 40 ปี สู่การฟื้นฟูภูมิปัญญาผ้าทอพื้นเมือง</p>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-text">
+                <p>ตลอดระยะเวลาที่คลุกคลีอยู่กับการตัดเย็บเสื้อผ้ามากว่า 40 ปี ทำให้ได้เรียนรู้ว่าผ้าที่ใส่สบายที่สุดคือ <strong>ผ้าฝ้ายและผ้าทอพื้นเมือง</strong> สวมใส่สบาย ไม่ร้อนเหมือนผ้าใยสังเคราะห์ เกิดเป็นแรงบันดาลใจในการเปิดร้านตัดเย็บและจำหน่ายผ้าพื้นเมือง</p>
+                <p>จากนั้นได้ไปศึกษาดูงานการทอผ้าในเมืองที่มีชื่อเสียง นำทักษะมาออกแบบตัดเย็บจนได้รับความนิยม จนกระทั่งเกิดแนวคิดรวมกลุ่มกันเพื่อฟื้นฟูการทอผ้าจากภูมิปัญญาบรรพบุรุษ <strong>ก่อตั้งเมื่อ เดือนกันยายน 2562</strong> โดยมี <strong>นางสมพร ใจคำ</strong> เป็นประธานกลุ่ม พร้อมด้วยสมาชิกในชุมชน</p>
+                
+                <div class="highlight-box">
+                    <p><strong>ความภาคภูมิใจ:</strong> ผลิตภัณฑ์ได้รับการรับรองมาตรฐานผลิตภัณฑ์ชุมชน (มผช.) ระดับ 4 ดาว และ OTOP พช. พร้อมทั้งได้รับการคัดเลือกจากจังหวัดลำปางให้ <strong>ผ้าทอสีธรรมชาติจากครั่ง เป็นสีอัตลักษณ์ของจังหวัดลำปาง</strong> (ลำปางเป็นเมืองหลวงแห่งครั่ง ส่งออกอันดับ 2 ของโลก อันดับ 1 ของประเทศไทย)</p>
+                </div>
+            </div>
+
+            <!-- แก้ไขส่วน About Features ใหม่ -->
+            <div class="about-features">
+                <div class="feature-card" id="card-cotton">
+                    <div class="card-content">
+                        <i class="fas fa-seedling"></i>
+                        <h3>ฝ้ายปลูกเอง</h3>
+                        <p>เน้นใช้เส้นฝ้ายจากธรรมชาติ ปลูกและดูแลในชุมชน</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card" id="card-lac">
+                    <div class="card-content">
+                        <i class="fas fa-palette"></i>
+                        <h3>ย้อมสีครั่ง</h3>
+                        <p>โดดเด่นด้วยการย้อมสีธรรมชาติจากครั่ง เอกลักษณ์เฉพาะลำปาง</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card" id="card-loom">
+                    <div class="card-content">
+                        <i class="fas fa-hands"></i>
+                        <h3>ทอมือโบราณ</h3>
+                        <p>ใช้กี่ทอผ้าโบราณ ถักทอด้วยความประณีตทุกขั้นตอน</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card" id="card-community">
+                    <div class="card-content">
+                        <i class="fas fa-users"></i>
+                        <h3>สร้างงานชุมชน</h3>
+                        <p>สร้างรายได้และสืบสานภูมิปัญญาให้คนในท้องถิ่น</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- Process Section -->
+    <section id="process" class="process-section">
+        <div class="section-title">
+            <h2>ขั้นตอนการผลิตด้วยภูมิปัญญา</h2>
+            <p>ใส่ใจทุกรายละเอียดตั้งแต่ต้นน้ำ ปลายน้ำ สู่ผ้าทอคุณภาพเยี่ยม</p>
+        </div>
+
+        <div class="process-steps">
+            <div class="step-card" id="step-1">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>ปลูกและเก็บฝ้าย</h3>
+                    <p>สมาชิกกลุ่มร่วมกันปลูกฝ้าย เก็บดอกฝ้ายและปุยฝ้ายที่ถึงฤดูกาลเก็บเกี่ยว</p>
+                </div>
+            </div>
+            <div class="step-card" id="step-2">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h3>เตรียมเส้นฝ้าย</h3>
+                    <p>นำมาอีดแยกเมล็ด ดีดให้ฟู ทำหางฝ้าย แล้วนำไปปั่นเป็นเส้นฝ้ายสำหรับเก็บไว้ทอ</p>
+                </div>
+            </div>
+            <div class="step-card" id="step-3">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>ทำความสะอาด</h3>
+                    <p>นำเส้นฝ้ายมาต้มทำความสะอาดล้างไขฝ้ายออกก่อนเตรียมนำไปย้อมสี</p>
+                </div>
+            </div>
+            <div class="step-card" id="step-4">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <h3>ย้อมสีธรรมชาติ (ครั่ง)</h3>
+                    <p>ใช้แหล่งน้ำธรรมชาติที่มีค่า PH เป็นกลางเหมาะแก่การย้อม พร้อมใช้ครั่งสดและผงสีธรรมชาติ</p>
+                </div>
+            </div>
+            <div class="step-card" id="step-5">
+                <div class="step-num">5</div>
+                <div class="step-content">
+                    <h3>ตากและกวักเส้นฝ้าย</h3>
+                    <p>ล้างเส้นฝ้ายที่ย้อมแล้ว นำไปตากในที่ร่ม นำมากวัก และปั่นหลอดเพื่อเตรียมขึ้นกี่ทอผ้า</p>
+                </div>
+            </div>
+            <div class="step-card" id="step-6">
+                <div class="step-num">6</div>
+                <div class="step-content">
+                    <h3>ทอมือและตัดเย็บ</h3>
+                    <p>ทอมือจากกี่โบราณ นำไปออกแบบตัดเย็บเป็นผลิตภัณฑ์ผ้าทอคุณภาพสูงหลากหลายรูปแบบ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <div class="container" id="products">
+        <div class="section-title">
+            <h2>สินค้าเด่นและผลิตภัณฑ์ของเรา</h2>
+            <p>ผสมผสานผ้าใยกัญชงและผ้าทอพื้นเมือง ออกแบบทันสมัย สวมใส่สบาย</p>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('images/กระเป๋า.jpg')">
+                    <span class="product-badge">ขายดีที่สุด</span>
+                </div>
+                <div class="product-info">
+                    <h3>ผ้าใยกัญชงผสมผ้าทอพื้นเมือง</h3>
+                    <p>สินค้าเด่นยอดนิยม นำใยกัญชงมาออกแบบผสมผสานกับผ้าทอพื้นเมืองย้อมสีครั่ง สวยงาม เป็นเอกลักษณ์</p>
+                    <div class="product-footer">
+                        <span class="price">ติดต่อสอบถาม</span>
+                        <a href="#contact" class="order-btn">สั่งซื้อสินค้า</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('images/ผ้าฝ้าย.jpg')">
+                    <span class="product-badge">สีอัตลักษณ์ลำปาง</span>
+                </div>
+                <div class="product-info">
+                    <h3>ผ้าฝ้ายย้อมสีครั่งธรรมชาติ</h3>
+                    <p>ผ้าฝ้ายทอมือย้อมด้วยสีครั่งแท้ ให้โทนสีอบอุ่น ละมุนตา ปลอดสารเคมี ปลอดภัยต่อผิวพรรณ</p>
+                    <div class="product-footer">
+                        <span class="price">ติดต่อสอบถาม</span>
+                        <a href="#contact" class="order-btn">สั่งซื้อสินค้า</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('images/มัดย้อม.jpg')">
+                    <span class="product-badge">ยอดนิยม</span>
+                </div>
+                <div class="product-info">
+                    <h3>ผ้ามัดย้อมสีธรรมชาติ</h3>
+                    <p>ผ้ามัดย้อมจากสีครั่งและสีธรรมชาติอื่นๆ ทั้งผ้าไหมและผ้าฝ้าย ลวดลายสวยงามร่วมสมัย</p>
+                    <div class="product-footer">
+                        <span class="price">ติดต่อสอบถาม</span>
+                        <a href="#contact" class="order-btn">สั่งซื้อสินค้า</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Identity Banner -->
+    <div class="container">
+        <div class="identity-banner">
+            <h2>ผ้าทอสีธรรมชาติจากครั่ง สีอัตลักษณ์จังหวัดลำปาง</h2>
+            <p>ทางกลุ่มฮอมฮักผ้าทอทุ่งฮีได้นำร่องการย้อมครั่งจนเป็นที่รู้จักแพร่หลาย โดดเด่นด้วยการนำสิ่งที่มีในชุมชนมาเพิ่มมูลค่า อิงภูมิศาสตร์พื้นถิ่น ลำปางคือเมืองหลวงแห่งครั่งที่ส่งออกอันดับ 2 ของโลก และอันดับ 1 ของประเทศไทย</p>
+        </div>
+    </div>
+
+    <!-- Community Section -->
+    <div class="container" id="community">
+        <div class="community-section">
+            <div class="community-grid">
+                <div>
+                    <h2 style="color: var(--primary-color); margin-bottom: 20px; font-size: 1.8rem;">การมีส่วนร่วมและความรับผิดชอบต่อสังคม</h2>
+                    <p style="margin-bottom: 15px;">กลุ่มฮอมฮักผ้าทอทุ่งฮีไม่ได้มุ่งเน้นเพียงแค่ธุรกิจ แต่เราใส่ใจถึงความยั่งยืนของชุมชน:</p>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 8px;"></i> <strong>สนับสนุนสาธารณประโยชน์:</strong> แบ่งผลกำไร 2% ไว้ใช้สนับสนุนกิจการสาธารณประโยชน์ในชุมชน</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 8px;"></i> <strong>สร้างงานสร้างรายได้:</strong> สมาชิกได้รับค่าตอบแทนตามชิ้นงานและความถนัด ช่วยกระจายรายได้สู่ครอบครัวในชุมชน</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary-color); margin-right: 8px;"></i> <strong>สืบสานภูมิปัญญา:</strong> ถ่ายทอดองค์ความรู้การทอผ้าและการย้อมสีธรรมชาติให้คงอยู่คู่ชุมชนบ้านทุ่งฮี</li>
+                    </ul>
+                </div>
+                <div style="background: #fdfbf7; padding: 30px; border-radius: 10px; border: 1px solid #eee;">
+                    <h3 style="color: var(--dark-color); margin-bottom: 15px;"><i class="fas fa-hands-helping" style="color: var(--primary-color); margin-right: 8px;"></i> ข้อมูลกลุ่ม</h3>
+                    <p style="margin-bottom: 8px;"><strong>ประธานกลุ่ม:</strong> นางสมพร ใจคำ</p>
+                    <p style="margin-bottom: 8px;"><strong>สมาชิกผู้ร่วมขับเคลื่อน:</strong> กว่า 22 ท่าน (อาทิ นางมาลี มีใจ, นางจันทร์ฟอง มาลา, นางธัญญา ทิมัน และสมาชิกในชุมชน)</p>
+                    <p style="margin-bottom: 8px;"><strong>การสนับสนุน:</strong> สำนักงานพัฒนาชุมชนจังหวัดลำปาง</p>
+                    <p style="margin-bottom: 8px;"><strong>รางวัล/มาตรฐาน:</strong> มาตรฐานผลิตภัณฑ์ชุมชน (มผช.) 4 ดาว / OTOP พช.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact & Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>กลุ่มฮอมฮักผ้าทอทุ่งฮี</h3>
+                <p>นึกถึงผ้าย้อมสีครั่ง นึกถึงฮอมฮักผ้าทอ บ้านทุ่งฮี สวยงาม ปลอดภัย ทรงคุณค่าภูมิปัญญาไทย</p>
+                <div class="social-icons">
+                   <a href="https://m.facebook.com/Somporn.Sittiporn/?ref=bookmarks" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://lin.ee/v9axJ9V" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-line"></i>
+</a>
+                    <a href="tel:0899510312"><i class="fas fa-phone-alt"></i></a>
+                 </div>
+            </div>
+            <div class="footer-col">
+                <h3>เมนูลัด</h3>
+                <ul>
+                    <li><a href="#home">หน้าแรก</a></li>
+                    <li><a href="#about">เกี่ยวกับเรา</a></li>
+                    <li><a href="#process">กระบวนการผลิต</a></li>
+                    <li><a href="#products">สินค้าเด่น</a></li>
+                    <li><a href="#community">สังคมและชุมชน</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>ช่องทางการติดต่อ</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 57 หมู่ 1 บ้านทุ่งฮี ต.วังทรายคำ อ.วังเหนือ จ.ลำปาง 52140</p>
+                <p><i class="fas fa-user"></i> ประธาน: นางสมพร ใจคำ โทร.0899510312</p>
+                <p><i class="fas fa-clock"></i> เปิดให้บริการทุกวัน</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 กลุ่มฮอมฮักผ้าทอทุ่งฮี. สงวนลิขสิทธิ์ทั้งหมด | พัฒนาเว็บไซต์เพื่อสนับสนุนวิสาหกิจชุมชน</p>
+        </div>
+    </footer>
+
+</body>
+</html>
